@@ -1,0 +1,35 @@
+<h1>Burger Station</h1>
+
+<h2>Burgers Ordered</h2>
+
+<ul>
+    {{#each burgers}}
+    {{burger_name}}
+    <button button class="eat" data-id="{{id}}" data-devore="{{devore}}"></button>
+    <br>
+    {{/each}}
+</ul>
+
+<h2>Burger Devored</h2>
+<ul>
+    {{#each burgers}}
+    {{/each}}
+
+</ul>
+
+
+<h2>Add a Burger</h2>
+
+<form class="form">
+
+    <div class="form-group">
+        <label for="burger">What burger do you want to order</label>
+        <input type="text" id="burgerT" name="burger">
+    </div>
+    <button type="submit">Place Order</button>
+
+
+
+
+
+</form>
