@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-
+const handlebars = require("handlebars")
 app.use(express.static("public"));
 
 
@@ -9,7 +9,28 @@ var exphand = require("express-handlebars");
 
 app.engine("handlebars", exphand({
 
-    defaultLayout: "main"
+    defaultLayout: "main",
+    partialsDir: __dirname + "/views/partials",
+
+    helpers: {
+        eat: function (data, options) {
+
+            let deOrNot = data.devoured;
+            if (deOrNot === 0) {
+
+                return JSON.stringify(data)
+            }
+
+        },
+
+        ordered: function (data) {
+            let orderOr = data.devored;
+            if (orderOr === 0) {
+                return data
+            }
+        }
+
+    }
 }));
 
 app.set("view engine", "handlebars");
@@ -18,6 +39,8 @@ app.use(express.urlencoded({
     extended: true
 }))
 app.use(express.json());
+
+
 
 
 var routes = require("./controllers/burger_controller.js");

@@ -13,6 +13,7 @@ var burger = {
     },
 
     create: function (cols, val, cb) {
+        console.log(cols, val, cb)
         orm.insertOne("burgers", cols, val, function (res) {
 
             cb(res);

@@ -3,31 +3,30 @@
 <h2>Burgers Ordered</h2>
 
 <ul>
-    {{#each burgers}}
-    {{burger_name}}
-    <button button class="eat" data-id="{{id}}" data-devore="{{devore}}"></button>
-    <br>
-    {{/each}}
+    {{>burgerDevored burgers}}
 </ul>
 
 <h2>Burger Devored</h2>
 <ul>
-    {{#each burgers}}
-    {{/each}}
+    {{>burgerDevored burgers}}
+
 
 </ul>
 
 
 <h2>Add a Burger</h2>
 
-<form class="form">
+<form class="form-create" method="POST" action="/api/burgers">
 
     <div class="form-group">
         <label for="burger">What burger do you want to order</label>
-        <input type="text" id="burgerT" name="burger">
-    </div>
-    <button type="submit">Place Order</button>
+        <input type="text" id="burgerT" name="burger" value="">
 
+
+    </div>
+
+    <button type="submit" id="submit">Place
+        Order</button>
 
 
 
