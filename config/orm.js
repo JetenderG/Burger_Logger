@@ -1,5 +1,19 @@
 var connection = require("../config/connection.js");
 
+function valPair(pairs) {
+
+
+    const array = Object.entries(pairs)
+
+    console.log(array)
+    for (const key of array) {
+        console.log(key)
+        const statement = key[0] + "=" + key[1];
+        console.log(statement)
+        return statement;
+
+    }
+}
 
 
 
@@ -31,17 +45,17 @@ var orm = {
     },
 
     updateOne: function (table, objColValue, condition, cb) {
-        var queryString = "UPDATE" + table;
+        var queryString = "UPDATE " + table;
         queryString += " SET ";
-        queryString += objColValue;
+        queryString += valPair(objColValue);
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += condition + ";";
 
-        console.log(querstring);
+        console.log(queryString);
         connection.query(queryString, function (err, result) {
+            cb(result)
 
             if (err) throw err;
-            cb(result)
         })
     }
 }

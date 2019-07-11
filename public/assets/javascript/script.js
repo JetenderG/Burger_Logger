@@ -27,26 +27,39 @@ $(function () {
         }
     })
 
+
     $(".eat").on("click", function (event) {
+
         event.preventDefault();
         const id = $(this).data("id")
-        console.log(id)
+        console.log("yess")
+        const eatD = $(this).data("devore")
+        console.log(id, eatD);
 
+        let eaten = {
 
-        $ajax("/api/burgers/" + id, {
+            eat: eatD
+        }
 
-            type: "UPDATE",
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
             data: eaten
-        }).then({
+        }).then(
             function () {
                 alert("Munch Muncg Choo Chooo........Done")
+                location.reload();
+
             }
-        })
 
-
+        )
 
     })
 
 
-
 })
+
+function autoCapitalize(words) {
+
+    // let arrayWords = words "ess".startsWith
+
+}

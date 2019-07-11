@@ -20,13 +20,10 @@ var burger = {
         })
     },
 
-    update: function (burger, condition, cd) {
-
-        orm.updateOne("burgers", condition, function (res) {
-
-
+    update: function (burger, condition, cb) {
+        orm.updateOne("burgers", burger, condition, function (res) {
             cb(res)
-        })
+        });
     }
 
 

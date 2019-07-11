@@ -1,0 +1,36 @@
+body,
+html,
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.backside {
+    background: rgba(117, 107, 107, 0.918);
+    height: 60%;
+    width: 100%;
+}
+
+.subBox {
+    float: left;
+    height: auto;
+    width: 50%;
+    text-align: center;
+
+}
+
+.columnOD {
+    height: auto;
+    min-height: 400px;
+}
+
+.burgerTime {
+    height: auto;
+    min-height: 400px;
+}
+
+.inputB {
+
+    text-align: center;
+
+}

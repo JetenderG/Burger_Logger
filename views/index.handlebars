@@ -1,34 +1,47 @@
-<h1>Burger Station</h1>
-
-<h2>Burgers Ordered</h2>
-
-<ul>
-    {{>burgerDevored burgers}}
-</ul>
-
-<h2>Burger Devored</h2>
-<ul>
-    {{>burgerDevored burgers}}
-
-
-</ul>
-
-
-<h2>Add a Burger</h2>
-
-<form class="form-create" method="POST" action="/api/burgers">
-
-    <div class="form-group">
-        <label for="burger">What burger do you want to order</label>
-        <input type="text" id="burgerT" name="burger" value="">
-
+<div class="container">
+    <div class="backside">
 
     </div>
+    <div class="burgerTime">
+        <h1>Burger Station</h1>
+        <div class="columnOD">
+            < <div class="subBox">
+                <h2>Burgers Ordered</h2>
 
-    <button type="submit" id="submit">Place
-        Order</button>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    {{>burgerOrder devore=true}}
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+        </div>
 
+        <div class="subBox">
+            <h2>Burger Devored</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{>burgerDevored devore=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="inputB">
+        <h2>Add a Burger</h2>
+        <form class="form-create" method="POST" action="/api/burgers">
+            <div class="form-group">
+                <label for="burger">What burger do you want to order</label>
+                <input type="text" id="burgerT" name="burger" value="0">
+            </div>
+            <button type="submit" id="submit">Place
+                Order</button>
+        </form>
+    </div>
+</div>
 
+<div class="backside">
 
-
-</form>
+</div>
+</div>
